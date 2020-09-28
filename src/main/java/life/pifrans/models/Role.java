@@ -22,6 +22,9 @@ public class Role implements Serializable {
 	@ManyToOne
 	@JoinColumn(name = "fk_player")
 	private Player player;
+	
+	public Role() {
+	}
 
 	private String access;
 

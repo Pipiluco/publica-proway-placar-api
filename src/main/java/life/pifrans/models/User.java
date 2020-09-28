@@ -14,7 +14,7 @@ import javax.validation.constraints.Email;
 import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.NotNull;
 
-import org.hibernate.validator.constraints.Length;
+import org.hibernate.validator.constraints.Range;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
@@ -32,7 +32,7 @@ public abstract class User implements Serializable {
 	private String gender;
 
 	@NotNull(message = "Campo obrigatório!")
-	@Length(min = 5, max = 120, message = "A idade deve ser entre 5 e 120 anos!")
+	@Range(min = 5, max = 120, message = "A idade deve ser entre 5 e 120 anos!")
 	private Integer age;
 
 	@NotEmpty(message = "Campo obrigatório!")

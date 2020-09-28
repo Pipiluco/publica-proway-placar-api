@@ -1,5 +1,6 @@
 package life.pifrans.models;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.persistence.CascadeType;
@@ -17,17 +18,20 @@ public class Player extends User {
 	private static final long serialVersionUID = 1L;
 
 	@JsonIgnore
-	@OneToMany(mappedBy = "player")
+	@OneToMany(mappedBy = "player", cascade = CascadeType.ALL)
 	private List<Score> scores;
 
 	@ManyToOne
 	@JoinColumn(name = "fk_game")
 	private Game game;
 
+	@JsonIgnore
 	@OneToMany(mappedBy = "player", cascade = CascadeType.ALL)
-	private List<Role> roles;
+	private List<Role> roles = new ArrayList<>();
 
-	@OneToMany(mappedBy = "player", cascade = CascadeType.ALL)
+	public Player() {
+	}
+
 	public List<Score> getScores() {
 		return scores;
 	}
@@ -42,6 +46,14 @@ public class Player extends User {
 
 	public void setGame(Game game) {
 		this.game = game;
+	}
+
+	public List<Role> getRoles() {
+		return roles;
+	}
+
+	public void setRoles(List<Role> roles) {
+		this.roles = roles;
 	}
 
 }

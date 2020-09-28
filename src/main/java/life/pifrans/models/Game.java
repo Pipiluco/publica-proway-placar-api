@@ -14,6 +14,7 @@ import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
 @Entity
@@ -29,6 +30,7 @@ public class Game implements Serializable {
 	@OneToMany(mappedBy = "game", cascade = CascadeType.ALL)
 	private List<Player> players;
 	
+	@JsonFormat(pattern = "dd/MM/yyyy HH:mm")
 	private Date date;
 
 	@ManyToOne
