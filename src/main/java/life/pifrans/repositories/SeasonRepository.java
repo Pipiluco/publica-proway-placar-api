@@ -3,9 +3,9 @@ package life.pifrans.repositories;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
-import life.pifrans.models.Game;
+import life.pifrans.models.Season;
 
 @Repository
-public interface SeasonRepository extends JpaRepository<Game, Long> {
+public interface SeasonRepository extends JpaRepository<Season, Long> {
 
 }
