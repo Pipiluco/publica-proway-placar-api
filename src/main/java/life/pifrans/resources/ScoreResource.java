@@ -28,6 +28,18 @@ public class ScoreResource {
 		Score score = scoreService.find(id);
 		return ResponseEntity.ok().body(score);
 	}
+	
+	@RequestMapping(value = "min-record-player/{id}", method = RequestMethod.GET)
+	public ResponseEntity<Score> findMinRecord(@PathVariable Long id) {
+		Score score = scoreService.findMinRecord(id);
+		return ResponseEntity.ok().body(score);
+	}
+	
+	@RequestMapping(value = "max-record-player/{id}", method = RequestMethod.GET)
+	public ResponseEntity<Score> findMaxRecord(@PathVariable Long id) {
+		Score score = scoreService.findMaxRecord(id);
+		return ResponseEntity.ok().body(score);
+	}
 
 	@RequestMapping(method = RequestMethod.POST)
 	public ResponseEntity<Void> insert(@Valid @RequestBody Score score) {

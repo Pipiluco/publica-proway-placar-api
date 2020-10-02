@@ -22,6 +22,16 @@ public class ScoreService {
 		return object.orElseThrow(() -> new ObjectNotFoundException("Objeto não encontrado! Id: " + id + ", Tipo: " + Score.class.getName()));
 	}
 
+	public Score findMinRecord(Long id) {
+		Score object = scoreRepository.findMinRecord(id);
+		return object;
+	}
+	
+	public Score findMaxRecord(Long id) {
+		Score object = scoreRepository.findMaxRecord(id);
+		return object;
+	}
+	
 	public Score insert(Score score) {
 		try {
 			score.setId(null);
