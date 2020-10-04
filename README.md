@@ -23,7 +23,8 @@
 	spring.jpa.show-sql=true
 	spring.jpa.properties.hibernate.format_sql=true
 ~~~
-	
+
+- A porta do servidor deve ser 80 
 - Banco de dados MySQL 8 com usuário _root_ e senha _root_
 - Java JDK 8
 - IDE Spring Tool Suite ou Eclipse
