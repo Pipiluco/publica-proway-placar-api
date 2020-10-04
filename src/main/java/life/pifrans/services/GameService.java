@@ -16,10 +16,15 @@ import life.pifrans.repositories.GameRepository;
 public class GameService {
 	@Autowired
 	private GameRepository gameRepository;
-	
+
 	public Game find(Long id) {
 		Optional<Game> object = gameRepository.findById(id);
-		return object.orElseThrow(() -> new ObjectNotFoundException("Objeto não encontrado! Id: " + id + ", Tipo: " + Game.class.getName()));
+		return object.orElseThrow(() -> new ObjectNotFoundException(
+				"Objeto não encontrado! Id: " + id + ", Tipo: " + Game.class.getName()));
+	}
+
+	public List<Game> findGamesBySeasonId(Long id) {
+		return gameRepository.findGamesBySeasonId(id);
 	}
 
 	public Game insert(Game game) {

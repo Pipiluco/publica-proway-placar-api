@@ -16,30 +16,25 @@ import life.pifrans.repositories.ScoreRepository;
 public class ScoreService {
 	@Autowired
 	private ScoreRepository scoreRepository;
-	
+
 	public Score find(Long id) {
 		Optional<Score> object = scoreRepository.findById(id);
-		return object.orElseThrow(() -> new ObjectNotFoundException("Objeto não encontrado! Id: " + id + ", Tipo: " + Score.class.getName()));
+		return object.orElseThrow(() -> new ObjectNotFoundException(
+				"Objeto não encontrado! Id: " + id + ", Tipo: " + Score.class.getName()));
 	}
 
 	public Score findMinRecord(Long id) {
 		Score object = scoreRepository.findMinRecord(id);
 		return object;
 	}
-	
+
 	public Score findMaxRecord(Long id) {
 		Score object = scoreRepository.findMaxRecord(id);
 		return object;
 	}
-	
-	public Score insert(Score score) {
-		try {
-			score.setId(null);
-			score = scoreRepository.save(score);
-			return score;
-		} catch (DataIntegrityViolationException e) {
-			throw new DataIntegrityException("Falha ao inserir objeto! " + e.getRootCause());
-		}
+
+	public List<Score> findScoresByGamesId(Long id) {
+		return scoreRepository.findScoresByGamesId(id);
 	}
 
 	public Score update(Score score) {
@@ -60,4 +55,55 @@ public class ScoreService {
 	public List<Score> findAll() {
 		return scoreRepository.findAll();
 	}
+
+	public Score insert(Score score) {
+		try {
+			score.setId(null);
+			List<Score> listAux = findAll();
+			if (listAux.size() == 0) {
+				score.setMinimumSeason(score.getPoints());
+				score.setMaximumSeason(score.getPoints());
+				score.setMinimumRecord(1);
+				score.setMaximumRecord(1);
+			} else {
+				Score scoreAux = listAux.get(listAux.size() - 1);
+				if (score.getPoints() > scoreAux.getPoints()) {
+					score.setMinimumSeason(scoreAux.getMinimumSeason());
+					score.setMaximumSeason(score.getPoints());
+					score.setMinimumRecord(0);
+					score.setMaximumRecord(1);
+				} else {
+					score.setMinimumSeason(score.getPoints());
+					score.setMaximumSeason(scoreAux.getMaximumSeason());
+					score.setMinimumRecord(1);
+					score.setMaximumRecord(0);
+				}
+				update(scoreAux);
+			}
+			score = scoreRepository.save(score);
+			return score;
+		} catch (DataIntegrityViolationException e) {
+			throw new DataIntegrityException("Falha ao inserir objeto! " + e.getRootCause());
+		}
+	}
 }
+
+/*
+ * public Score insert(Score score) { try { score.setId(null); List<Score>
+ * listAux = findAll(); if (listAux.size() == 0) {
+ * score.setMinimumSeason(score.getPoints());
+ * score.setMaximumSeason(score.getPoints()); score.setMinimumRecord(0);
+ * score.setMaximumRecord(0); } else { Score scoreAux =
+ * listAux.get(listAux.size() - 1); if (score.getPoints() >
+ * scoreAux.getPoints()) { score.setMinimumSeason(scoreAux.getMinimumSeason());
+ * score.setMaximumSeason(score.getPoints());
+ * score.setMinimumRecord(scoreAux.getMinimumRecord());
+ * score.setMaximumRecord(1); } else {
+ * score.setMinimumSeason(score.getPoints());
+ * score.setMaximumSeason(scoreAux.getMaximumSeason());
+ * score.setMinimumRecord(1);
+ * score.setMaximumRecord(scoreAux.getMaximumRecord()); } } score =
+ * scoreRepository.save(score); return score; } catch
+ * (DataIntegrityViolationException e) { throw new
+ * DataIntegrityException("Falha ao inserir objeto! " + e.getRootCause()); } }
+ */
