@@ -12,6 +12,9 @@ import life.pifrans.exceptions.errors.ObjectNotFoundException;
 import life.pifrans.models.Game;
 import life.pifrans.repositories.GameRepository;
 
+/**
+ * Classe de {@link Service} referente a {@link Game}
+ */
 @Service
 public class GameService {
 	@Autowired

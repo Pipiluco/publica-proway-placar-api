@@ -12,6 +12,9 @@ import life.pifrans.exceptions.errors.ObjectNotFoundException;
 import life.pifrans.models.Score;
 import life.pifrans.repositories.ScoreRepository;
 
+/**
+ * Classe de {@link Service} referente a {@link Score}
+ */
 @Service
 public class ScoreService {
 	@Autowired

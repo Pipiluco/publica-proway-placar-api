@@ -12,6 +12,9 @@ import life.pifrans.exceptions.errors.ObjectNotFoundException;
 import life.pifrans.models.Role;
 import life.pifrans.repositories.RoleRepository;
 
+/**
+ * Classe de {@link Service} referente a {@link Role}
+ */
 @Service
 public class RoleService {
 	@Autowired

@@ -19,7 +19,7 @@ import org.hibernate.validator.constraints.Range;
 import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
-@MappedSuperclass
+@MappedSuperclass /* Anotação para mostrar para o JPA que esta é uma superclasse e não precisa criar tabela a partir dela e sim das classes filhas */
 public abstract class User implements Serializable {
 	private static final long serialVersionUID = 1L;
 

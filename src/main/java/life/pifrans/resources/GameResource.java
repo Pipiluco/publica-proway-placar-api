@@ -17,6 +17,9 @@ import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 import life.pifrans.models.Game;
 import life.pifrans.services.GameService;
 
+/**
+ * Classe com endpoints referente a {@link Game}
+ */
 @RestController
 @RequestMapping(value = "/games")
 public class GameResource {

@@ -12,6 +12,9 @@ import life.pifrans.exceptions.errors.ObjectNotFoundException;
 import life.pifrans.models.Season;
 import life.pifrans.repositories.SeasonRepository;
 
+/**
+ * Classe de {@link Service} referente a {@link Season}
+ */
 @Service
 public class SeasonService {
 	@Autowired

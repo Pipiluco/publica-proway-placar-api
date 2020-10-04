@@ -17,6 +17,9 @@ import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 import life.pifrans.models.Season;
 import life.pifrans.services.SeasonService;
 
+/**
+ * Classe com endpoints referente a {@link Season}
+ */
 @RestController
 @RequestMapping(value = "/seasons")
 public class SeasonResource {

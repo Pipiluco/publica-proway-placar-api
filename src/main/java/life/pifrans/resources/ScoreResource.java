@@ -17,6 +17,9 @@ import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 import life.pifrans.models.Score;
 import life.pifrans.services.ScoreService;
 
+/**
+ * Classe com endpoints referente a {@link Score}
+ */
 @RestController
 @RequestMapping(value = "/scores")
 public class ScoreResource {

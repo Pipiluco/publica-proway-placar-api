@@ -17,6 +17,9 @@ import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 import life.pifrans.models.Role;
 import life.pifrans.services.RoleService;
 
+/**
+ * Classe com endpoints referente a {@link Role}
+ */
 @RestController
 @RequestMapping(value = "/roles")
 public class RoleResource {

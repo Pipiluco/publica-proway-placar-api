@@ -17,6 +17,9 @@ import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 import life.pifrans.models.Player;
 import life.pifrans.services.PlayerService;
 
+/**
+ * Classe com endpoints referente a {@link Player}
+ */
 @RestController
 @RequestMapping(value = "/players")
 public class PlayerResource {

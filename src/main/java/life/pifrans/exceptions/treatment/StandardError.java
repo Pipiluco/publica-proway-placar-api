@@ -2,6 +2,9 @@ package life.pifrans.exceptions.treatment;
 
 import java.io.Serializable;
 
+/*
+ * Classe modelo para trabalhar com tratação de erro padrão
+ */
 public class StandardError implements Serializable {
 	private static final long serialVersionUID = 1L;
 	private Integer status;

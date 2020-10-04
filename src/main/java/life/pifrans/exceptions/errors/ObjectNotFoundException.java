@@ -1,5 +1,8 @@
 package life.pifrans.exceptions.errors;
 
+/*
+ * Classe para tratar erros de objetos nulos
+ */
 public class ObjectNotFoundException extends RuntimeException {
 	private static final long serialVersionUID = 1L;
 
