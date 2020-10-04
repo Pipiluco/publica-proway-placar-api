@@ -18,11 +18,20 @@ public class Score implements Serializable {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
+
 	private Integer points;
+	private Integer minimumSeason;
+	private Integer maximumSeason;
+	private Integer minimumRecord;
+	private Integer maximumRecord;
 
 	@ManyToOne
 	@JoinColumn(name = "fk_player")
 	private Player player;
+
+	@ManyToOne
+	@JoinColumn(name = "fk_game")
+	private Game game;
 
 	public Long getId() {
 		return id;
@@ -40,12 +49,52 @@ public class Score implements Serializable {
 		this.points = points;
 	}
 
+	public Integer getMinimumSeason() {
+		return minimumSeason;
+	}
+
+	public void setMinimumSeason(Integer minimumSeason) {
+		this.minimumSeason = minimumSeason;
+	}
+
+	public Integer getMaximumSeason() {
+		return maximumSeason;
+	}
+
+	public void setMaximumSeason(Integer maximumSeason) {
+		this.maximumSeason = maximumSeason;
+	}
+
+	public Integer getMinimumRecord() {
+		return minimumRecord;
+	}
+
+	public void setMinimumRecord(Integer minimumRecord) {
+		this.minimumRecord = minimumRecord;
+	}
+
+	public Integer getMaximumRecord() {
+		return maximumRecord;
+	}
+
+	public void setMaximumRecord(Integer maximumRecord) {
+		this.maximumRecord = maximumRecord;
+	}
+
 	public Player getPlayer() {
 		return player;
 	}
 
 	public void setPlayer(Player player) {
 		this.player = player;
+	}
+
+	public Game getGame() {
+		return game;
+	}
+
+	public void setGame(Game game) {
+		this.game = game;
 	}
 
 	@Override

@@ -28,10 +28,11 @@ public class Game implements Serializable {
 
 	@JsonIgnore
 	@OneToMany(mappedBy = "game", cascade = CascadeType.ALL)
-	private List<Player> players;
-	
+	private List<Score> scores;
+
 	@JsonFormat(pattern = "dd/MM/yyyy HH:mm")
 	private Date date;
+	private int totalPoints;
 
 	@ManyToOne
 	@JoinColumn(name = "fk_season")
@@ -45,12 +46,12 @@ public class Game implements Serializable {
 		this.id = id;
 	}
 
-	public List<Player> getPlayers() {
-		return players;
+	public List<Score> getScores() {
+		return scores;
 	}
 
-	public void setPlayers(List<Player> players) {
-		this.players = players;
+	public void setScores(List<Score> scores) {
+		this.scores = scores;
 	}
 
 	public Season getSeason() {
@@ -67,6 +68,14 @@ public class Game implements Serializable {
 
 	public void setDate(Date date) {
 		this.date = date;
+	}
+
+	public int getTotalPoints() {
+		return totalPoints;
+	}
+
+	public void setTotalPoints(int totalPoints) {
+		this.totalPoints = totalPoints;
 	}
 
 	@Override

@@ -7,6 +7,8 @@ import javax.persistence.Column;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.MappedSuperclass;
 import javax.validation.constraints.Email;
 import javax.validation.constraints.NotEmpty;
@@ -52,6 +54,10 @@ public abstract class User implements Serializable {
 
 	@Column(name = "is_active")
 	private boolean isActive;
+
+	@ManyToOne
+	@JoinColumn(name = "fk_role")
+	private Role role;
 
 	public Long getId() {
 		return id;
@@ -131,6 +137,14 @@ public abstract class User implements Serializable {
 
 	public void setActive(boolean isActive) {
 		this.isActive = isActive;
+	}
+
+	public Role getRole() {
+		return role;
+	}
+
+	public void setRole(Role role) {
+		this.role = role;
 	}
 
 	@Override
