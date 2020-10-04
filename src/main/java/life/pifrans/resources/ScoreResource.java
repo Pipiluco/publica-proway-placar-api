@@ -35,6 +35,12 @@ public class ScoreResource {
 		return ResponseEntity.ok().body(scores);
 	}
 	
+	@RequestMapping(value = "game/{id}/points", method = RequestMethod.GET)
+	public ResponseEntity<Integer> findPointsByGameId(@PathVariable Long id) {
+		int points = scoreService.findPointsByGameId(id);
+		return ResponseEntity.ok().body(points);
+	}
+	
 	@RequestMapping(value = "min-record-player/{id}", method = RequestMethod.GET)
 	public ResponseEntity<Score> findMinRecord(@PathVariable Long id) {
 		Score score = scoreService.findMinRecord(id);

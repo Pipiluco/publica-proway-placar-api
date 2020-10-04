@@ -20,4 +20,7 @@ public interface ScoreRepository extends JpaRepository<Score, Long> {
 
 	@Query("SELECT s FROM Score s WHERE s.game.id = :id")
 	public List<Score> findScoresByGamesId(@Param("id") Long id);
+	
+	@Query("SELECT SUM(s.points) FROM Score s WHERE s.game.id = :id")
+	public int findPointsByGameId(@Param("id") Long id);
 }

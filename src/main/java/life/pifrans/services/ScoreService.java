@@ -37,6 +37,18 @@ public class ScoreService {
 		return scoreRepository.findScoresByGamesId(id);
 	}
 
+	public int findPointsByGameId(Long id) {
+		try {
+			int points = scoreRepository.findPointsByGameId(id);
+			return points;
+		} catch (ObjectNotFoundException e) {
+			throw new ObjectNotFoundException("Objeto não encontrado! Id: " + id + ", Tipo: " + Score.class.getName());
+		} catch (Exception e) {
+			e.printStackTrace();
+			return 0;
+		}
+	}
+
 	public Score update(Score score) {
 		find(score.getId());
 		scoreRepository.save(score);
