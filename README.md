@@ -4,7 +4,7 @@
 		
 #### Esta projeto trabalha com o propósito de cadastrar em uma base de dados informações sobre uma determinada temporada de jogos que 
 #### contenha jogos e os jogos contenha jogadores com suas pontuações.
-	</p>
+
 	
 ## Requisítos para execução do projeto
 #### Observação: as configurações para execução do projeto podem ser alteradas no arquivo _application.properties_
@@ -24,6 +24,6 @@
 	spring.jpa.properties.hibernate.format_sql=true
 ~~~
 	
-	- Banco de dados MySQL 8 com usuário _root_ e senha _root_
-	- Java JDK 8
-	- IDE Spring Tool Suite ou Eclipse
+- Banco de dados MySQL 8 com usuário _root_ e senha _root_
+- Java JDK 8
+- IDE Spring Tool Suite ou Eclipse
