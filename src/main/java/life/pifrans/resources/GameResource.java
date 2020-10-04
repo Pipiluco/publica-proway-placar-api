@@ -28,6 +28,12 @@ public class GameResource {
 		Game game = gameService.find(id);
 		return ResponseEntity.ok().body(game);
 	}
+	
+	@RequestMapping(value = "season/{id}", method = RequestMethod.GET)
+	public ResponseEntity<List<Game>> findGamesBySeasonId(@PathVariable Long id) {
+		List<Game> games = gameService.findGamesBySeasonId(id);
+		return ResponseEntity.ok().body(games);
+	}
 
 	@RequestMapping(method = RequestMethod.POST)
 	public ResponseEntity<Void> insert(@Valid @RequestBody Game game) {
