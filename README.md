@@ -1,9 +1,9 @@
 # Sobre o projeto
-	<p>
-		O projeto foi desenvolvido em Java com base no framework Spring Boot e MySQL.
+
+#### O projeto foi desenvolvido em Java com base no framework Spring Boot e MySQL.
 		
-		Esta projeto trabalha com o propósito de cadastrar em uma base de dados informações sobre uma determinada temporada de jogos que 
-		contenha jogos e os jogos contenha jogadores com suas pontuações.
+#### Esta projeto trabalha com o propósito de cadastrar em uma base de dados informações sobre uma determinada temporada de jogos que 
+#### contenha jogos e os jogos contenha jogadores com suas pontuações.
 	</p>
 	
 ## Requisítos para execução do projeto
